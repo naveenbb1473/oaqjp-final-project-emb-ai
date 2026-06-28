@@ -15,13 +15,9 @@ def home():
 @app.route("/emotionDetector")
 def sent_analyzer():
     """Analyze the text entered by the user."""
-
     text_to_analyze = request.args.get("textToAnalyze")
 
     response = emotion_detector(text_to_analyze)
-
-    if response["dominant_emotion"] is None:
-        return "Invalid text! Please try again!"
 
     return (
         f"For the given statement, the system response is "
